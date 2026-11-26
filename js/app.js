@@ -13,6 +13,12 @@
   const topicById = Object.fromEntries(DB.topics.map((t) => [t.id, t]));
   const tintFor = { suj: "violet", tas: "blue", def: "sage", acr: "green", pag: "amber", ena: "coral", imp: "blue", ser: "violet", obl: "sage", fac: "coral", par: "amber", reg: "green" };
   const LETTERS = ["a", "b", "c", "d"];
+  // Base del reactivo: contexto del caso + pregunta final resaltada (estilo examen)
+  function stem(text) {
+    const k = text.lastIndexOf("¿");
+    if (k <= 0) return `<p class="q-text">${esc(text)}</p>`;
+    return `<p class="q-text"><span class="ctx">${esc(text.slice(0, k).trim())}</span> <span class="ask">${esc(text.slice(k))}</span></p>`;
+  }
 
   // IDs estables por posición
   DB.quiz.forEach((x, i) => (x.id = "q" + i));
@@ -324,7 +330,7 @@
           <div class="q-badge">${String(i + 1).padStart(2, "0")}</div>
           <div class="q-meta"><span class="tag">${icon(topicById[q.t].icon, "sm")} ${topicById[q.t].name}</span>
             <button class="hint-btn" id="hint">${icon("lightbulb", "sm")} Pista</button></div>
-          <p class="q-text">${esc(q.q)}</p>
+          ${stem(q.q)}
           <div id="hintBox"></div>
         </section>
         <div class="opts" id="opts">${order.map((k, j) => `<button class="opt" data-k="${k}"><span class="letter">${LETTERS[j]}</span><span>${esc(q.o[k])}</span><span class="mark"></span></button>`).join("")}</div>
@@ -487,7 +493,7 @@
       view().innerHTML = `${sessTop(i, items.length)}
         <section class="q-card enter"><div class="q-badge">${String(i + 1).padStart(2, "0")}</div>
           <div class="q-meta"><span class="tag">${icon(topicById[v.t].icon, "sm")} ${topicById[v.t].name}</span></div>
-          <p class="q-text" style="font-size:19px">${esc(v.s)}</p></section>
+          <p class="q-text tf-text">${esc(v.s)}</p></section>
         <div class="tf"><button class="v" data-v="1">${icon("check", "lg")}Verdadero</button><button class="f" data-v="0">${icon("x", "lg")}Falso</button></div>
         <div id="after"></div>`;
       const choose = (b) => {
@@ -622,7 +628,7 @@
           <div class="progress"><i style="width:${(ans.filter((a) => a !== null).length / items.length) * 100}%"></i></div>${timerHtml()}<span class="counter">${i + 1}/${items.length}</span></div>
         <section class="q-card enter"><div class="q-badge">${String(i + 1).padStart(2, "0")}</div>
           <div class="q-meta"><span class="tag">${icon(topicById[q.t].icon, "sm")} ${topicById[q.t].name}</span></div>
-          <p class="q-text">${esc(q.q)}</p></section>
+          ${stem(q.q)}</section>
         <div class="opts" id="opts">${order.map((k, j) => `<button class="opt ${ans[i] === k ? "picked" : ""}" data-k="${k}"><span class="letter">${LETTERS[j]}</span><span>${esc(q.o[k])}</span><span class="mark">${ans[i] === k ? icon("check", "sm") : ""}</span></button>`).join("")}</div>
         <div class="row" style="margin-top:16px">
           <button class="btn ghost sm" id="prev" ${i ? "" : "disabled"}>${icon("chevron-left")} Anterior</button><span class="spacer"></span>

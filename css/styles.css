@@ -202,7 +202,10 @@ body.focus .nav{transform:translate(-50%,140%);opacity:0;pointer-events:none}
 .tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted);padding:5px 10px;border-radius:999px;background:var(--chip-bg)}
 .hint-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:12px;background:var(--hint-soft);color:#d98a12;font-weight:800;font-size:12.5px}
 .hint-btn:disabled{opacity:.5}
-.q-text{font-size:17.5px;font-weight:600;line-height:1.5;letter-spacing:-.005em;margin:6px 0 0}
+.q-text{font-size:16px;font-weight:500;line-height:1.62;letter-spacing:-.003em;margin:6px 0 0;text-align:left}
+.q-text .ctx{opacity:.92}
+.q-text .ask{display:block;margin-top:12px;font-weight:700;font-size:16.5px;line-height:1.5}
+.q-text.tf-text{font-size:16.5px;font-weight:600}
 .hint-box{margin-top:14px;padding:12px 14px;border-radius:14px;background:var(--hint-soft);border:1px dashed rgba(255,181,71,.55);font-size:14px;font-weight:600;
   animation:drop .4s var(--spring)}
 .hint-box .icon{color:#e0951b;vertical-align:-4px;margin-right:6px}

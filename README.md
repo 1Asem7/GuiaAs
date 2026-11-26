@@ -34,6 +34,12 @@ js/data/quiz2.js   quiz items, arts. 7–28 + RLIEPS
 js/data/study.js   cards, cloze, true/false, match, numeric cases
 ```
 
+Question style (quiz, mock exam and true/false) follows the professor's exam and CENEVAL conventions:
+a case-based stem with context details that rule out other scenarios ("no se trata de…", "no existe…"),
+an explicit scope ("para efectos exclusivamente de…"), a final question tied to the law, and four parallel
+options that each carry a legal justification. Option lengths are balanced so the longest option is the
+correct one only about 25% of the time.
+
 Quiz item shape: `{ t: topicId, art, q, o: [4 options], a: correctIndex, why, hint }`.
 Options are shuffled at render time, so `a` can be any index.
 

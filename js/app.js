@@ -316,7 +316,7 @@
 
   // ================= QUIZ =================
   function quiz() {
-    setup({ title: "Quiz tipo examen", desc: "Casos prácticos con opciones que se justifican con un \"porque…\", como los de tu profesora.", ic: "brain-circuit", tint: "blue", pool: DB.quiz, onStart: (items) => runQuiz(items, quiz) });
+    setup({ title: "Quiz tipo examen", desc: "Casos prácticos con opciones que se justifican con un \"porque…\", como los de tu profesora.", ic: "brain-circuit", tint: "blue", pool: DB.quiz, sizes: [10, 20, 50, 0], onStart: (items) => runQuiz(items, quiz) });
   }
   function runQuiz(items, again) {
     setFocus(true); run = 0;

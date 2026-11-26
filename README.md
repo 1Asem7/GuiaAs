@@ -9,7 +9,7 @@ Static site: plain HTML + CSS + JavaScript, no build step, no database. Progress
 | Mode | What it does |
 |---|---|
 | Flashcards | 70 concept cards with a 5-box spaced repetition system |
-| Exam-style quiz | 125 case-based questions with "porque…" options, hints and explanations citing the article |
+| Exam-style quiz | 375 case-based questions (incl. worked-figure cases) with "porque…" options, hints and explanations citing the article |
 | Fill in the blanks | 51 key sentences with a 3-level hint ladder (idea → first letter → half the word) |
 | True / False | 35 trap statements with justification |
 | Match | 6 sets: rates, articles, deadlines, percentages, RLIEPS |
@@ -31,6 +31,11 @@ All study content lives in `js/data/`:
 js/data/meta.js    topics and exam date
 js/data/quiz1.js   quiz items, arts. 1–6
 js/data/quiz2.js   quiz items, arts. 7–28 + RLIEPS
+js/data/quiz3.js   rates, quotas and definitions (new angles)
+js/data/quiz4.js   crediting, payment, withholding, imports
+js/data/quiz5.js   transfers, exemptions, gambling, telecom, digital services
+js/data/quiz6.js   obligations (art. 19 ff.) and authority powers
+js/data/quiz7.js   figure-based cases, state revenue sharing, RLIEPS, integrative cases
 js/data/study.js   cards, cloze, true/false, match, numeric cases
 ```
 
@@ -38,7 +43,7 @@ Question style (quiz, mock exam and true/false) follows the professor's exam and
 a case-based stem with context details that rule out other scenarios ("no se trata de…", "no existe…"),
 an explicit scope ("para efectos exclusivamente de…"), a final question tied to the law, and four parallel
 options that each carry a legal justification. Option lengths are balanced so the longest option is the
-correct one only about 25% of the time.
+correct one only about 20% of the time.
 
 Quiz item shape: `{ t: topicId, art, q, o: [4 options], a: correctIndex, why, hint }`.
 Options are shuffled at render time, so `a` can be any index.

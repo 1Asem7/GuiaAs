@@ -58,3 +58,10 @@ The image is `nginxinc/nginx-unprivileged:alpine` (runs as UID 101, no root, no 
 ## Keyboard shortcuts
 
 `1–4` / `a–d` answer · `H` hint · `Enter` continue · `Space` flip card · `←/→` navigate in the mock exam.
+
+## Actualizar sin que se quede la versión vieja
+
+`index.html` pide `css/styles.css` y los archivos de `js/` con `?v=<versión>` (por ejemplo `js/app.js?v=2026.11.25`).
+El navegador y Cloudflare guardan estos archivos hasta 1 hora; con un número nuevo los vuelven a bajar.
+
+En cada cambio a CSS o JS: cambia la versión en esas líneas de `index.html` (usa la fecha del día) y publica.

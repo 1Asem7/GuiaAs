@@ -48,12 +48,12 @@ python3 -m http.server 8080
 
 ```bash
 docker build -t guia-ieps .
-docker run -d --name guia-ieps -p 8080:80 --restart unless-stopped guia-ieps
+docker run -d --name guia-ieps -p 8080:8080 --restart unless-stopped guia-ieps
 ```
 
 Or with Compose: `docker compose up -d --build`.
 
-The image is `nginx:alpine` serving the files on port **80** inside the container, with gzip, long cache for `/assets/` and short cache for JS/CSS.
+The image is `nginxinc/nginx-unprivileged:alpine` (runs as UID 101, no root, no extra capabilities) serving the files on port **8080** inside the container, with gzip, long cache for `/assets/` and short cache for JS/CSS.
 
 ## Keyboard shortcuts
 

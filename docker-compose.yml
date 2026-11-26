@@ -1,0 +1,7 @@
+services:
+  guia-ieps:
+    build: .
+    container_name: guia-ieps
+    restart: unless-stopped
+    ports:
+      - "8080:80"

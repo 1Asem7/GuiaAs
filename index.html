@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>GuíaAs · IEPS 2026</title>
+  <meta name="description" content="Guía de estudio interactiva de la LIEPS y su Reglamento: tarjetas, quiz tipo examen, completar con pistas, simulacro y más.">
+  <meta name="theme-color" content="#15112e">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Aplica el tema guardado antes de pintar (evita parpadeo)
+    try { var s = JSON.parse(localStorage.getItem("guiaIEPS.v1") || "{}"); if (s.theme) document.documentElement.dataset.theme = s.theme; } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#/" style="color:inherit;text-decoration:none">
+        <span class="brand-mark" data-icon="scale"></span>
+        <span>GuíaAs<small>IEPS · LIEPS + RLIEPS 2026</small></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-btn" id="btnSound" aria-label="Sonido"></button>
+        <button class="icon-btn" id="btnTheme" aria-label="Cambiar tema"></button>
+      </div>
+    </header>
+    <main id="view" aria-live="polite"></main>
+  </div>
+
+  <nav class="nav" id="nav">
+    <a href="#/" data-r="home"><span data-icon="home"></span>Inicio</a>
+    <a href="#/cards" data-r="cards"><span data-icon="layers"></span>Tarjetas</a>
+    <a href="#/quiz" data-r="quiz"><span data-icon="brain-circuit"></span>Quiz</a>
+    <a href="#/sim" data-r="sim"><span data-icon="timer"></span>Simulacro</a>
+    <a href="#/settings" data-r="settings"><span data-icon="settings"></span>Ajustes</a>
+  </nav>
+
+  <div class="banner" id="banner" role="status"></div>
+
+  <script src="assets/vendor/confetti.browser.js" defer></script>
+  <script src="js/icons.js" defer></script>
+  <script src="js/data/meta.js" defer></script>
+  <script src="js/data/quiz1.js" defer></script>
+  <script src="js/data/quiz2.js" defer></script>
+  <script src="js/data/study.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
